@@ -5,8 +5,8 @@ from datetime import datetime
 
 import torch
 
-from code.utils.cluster.cluster_eval import cluster_subheads_eval
-from code.utils.cluster.transforms import sobel_process
+from IIC.utils.cluster.cluster_eval import cluster_subheads_eval
+from IIC.utils.cluster.transforms import sobel_process
 
 
 def segmentation_eval(config, net,

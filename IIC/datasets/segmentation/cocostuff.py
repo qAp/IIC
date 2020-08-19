@@ -16,11 +16,12 @@ import torchvision.transforms as tvt
 from PIL import Image
 from torch.utils import data
 
-from util import cocostuff_fine_to_coarse
-from .util.cocostuff_fine_to_coarse import generate_fine_to_coarse
-from ...utils.segmentation.render import render
-from ...utils.segmentation.transforms import \
-  pad_and_or_crop, random_affine, custom_greyscale_numpy
+from IIC.datasets.segmentation.util import cocostuff_fine_to_coarse
+from IIC.datasets.segmentation.util.cocostuff_fine_to_coarse import (
+  generate_fine_to_coarse)
+from IIC.utils.segmentation.render import render
+from IIC.utils.segmentation.transforms import (
+  pad_and_or_crop, random_affine, custom_greyscale_numpy)
 
 __all__ = ["Coco10kFull", "Coco10kFew", "Coco164kFull", "Coco164kFew",
            "Coco164kCuratedFew", "Coco164kCuratedFull"]
