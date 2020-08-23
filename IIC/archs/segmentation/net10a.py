@@ -12,7 +12,7 @@ __all__ = ["SegmentationNet10a"]
 
 class SegmentationNet10aTrunk(VGGTrunk):
   def __init__(self, config, cfg):
-    super(SegmentationNet10aTrunk, self).__init__()
+    super().__init__()
 
     self.batchnorm_track = config.batchnorm_track
 
@@ -33,7 +33,7 @@ class SegmentationNet10aTrunk(VGGTrunk):
 
 class SegmentationNet10aHead(nn.Module):
   def __init__(self, config, output_k, cfg):
-    super(SegmentationNet10aHead, self).__init__()
+    super().__init__()
 
     self.batchnorm_track = config.batchnorm_track
 
@@ -64,7 +64,7 @@ class SegmentationNet10a(VGGNet):
          (512, 2), (512, 2)]  # 30x30 recep field
 
   def __init__(self, config):
-    super(SegmentationNet10a, self).__init__()
+    super().__init__()
 
     self.batchnorm_track = config.batchnorm_track
 
