@@ -37,8 +37,8 @@ def _hungarian_match(flat_preds, flat_targets, preds_k, targets_k):
   num_k = preds_k
   num_correct = np.zeros((num_k, num_k))
 
-  for c1 in xrange(num_k):
-    for c2 in xrange(num_k):
+  for c1 in range(num_k):
+    for c2 in range(num_k):
       # elementwise, so each sample contributes once
       votes = int(((flat_preds == c1) * (flat_targets == c2)).sum())
       num_correct[c1, c2] = votes

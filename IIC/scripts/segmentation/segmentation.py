@@ -209,7 +209,7 @@ else:
 
 # Train ------------------------------------------------------------------------
 
-for e_i in xrange(next_epoch, config.num_epochs):
+for e_i in range(next_epoch, config.num_epochs):
   print("Starting e_i: %d %s" % (e_i, datetime.now()))
   sys.stdout.flush()
 
