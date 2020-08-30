@@ -173,8 +173,8 @@ class _Potsdam(data.Dataset):
 
     # convert both to channel-first tensor format
     # make them all cuda tensors now, except label, for optimality
-    img1 = torch.from_numpy(img1).permute(2, 0, 1).cuda()
-    img2 = torch.from_numpy(img2).permute(2, 0, 1).cuda()
+    img1 = torch.from_numpy(img1).permute(2, 0, 1)
+    img2 = torch.from_numpy(img2).permute(2, 0, 1)
 
     # (img2) do affine if nec, tf_mat changes
     if self.use_random_affine:
@@ -187,7 +187,7 @@ class _Potsdam(data.Dataset):
                                                        **affine_kwargs)  #
       # tensors
     else:
-      affine2_to_1 = torch.zeros([2, 3]).to(torch.float32).cuda()  # identity
+      affine2_to_1 = torch.zeros([2, 3]).to(torch.float32)  # identity
       affine2_to_1[0, 0] = 1
       affine2_to_1[1, 1] = 1
 
@@ -204,7 +204,7 @@ class _Potsdam(data.Dataset):
     # uint8 tensor as masks should be binary, also for consistency,
     # but converted to float32 in main loop because is used
     # multiplicatively in loss
-    mask_img1 = torch.ones(self.input_sz, self.input_sz).to(torch.uint8).cuda()
+    mask_img1 = torch.ones(self.input_sz, self.input_sz).to(torch.uint8)
 
     if RENDER_DATA:
       render(img1, mode="image", name=("train_data_img1_%d" % index))
