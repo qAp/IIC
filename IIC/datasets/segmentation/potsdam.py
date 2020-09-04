@@ -30,7 +30,7 @@ class _Potsdam(data.Dataset):
   """
 
   def __init__(self, config=None, split=None, purpose=None, preload=False):
-    super(_Potsdam, self).__init__()
+    super().__init__()
 
     self.split = split
     self.purpose = purpose
