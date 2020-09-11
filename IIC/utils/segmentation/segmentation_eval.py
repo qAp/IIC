@@ -43,6 +43,7 @@ def segmentation_eval(config, net,
 
 def _segmentation_get_data(config, net, dataloader, sobel=False,
                            using_IR=False, verbose=0):
+  device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
   # returns (vectorised) cuda tensors for flat preds and targets
   # sister of _clustering_get_data
 
@@ -60,12 +61,12 @@ def _segmentation_get_data(config, net, dataloader, sobel=False,
 
   # vectorised
   flat_predss_all = [torch.zeros((num_batches * samples_per_batch),
-                                 dtype=torch.uint8).cuda() for _ in range(
+                                 dtype=torch.uint8).to(device) for _ in range(
     config.num_sub_heads)]
   flat_targets_all = torch.zeros((num_batches * samples_per_batch),
-                                 dtype=torch.uint8).cuda()
+                                 dtype=torch.uint8).to(device)
   mask_all = torch.zeros((num_batches * samples_per_batch),
-                         dtype=torch.uint8).cuda()
+                         dtype=torch.uint8).to(device)
 
   if verbose > 0:
     batch_start = datetime.now()
@@ -75,7 +76,7 @@ def _segmentation_get_data(config, net, dataloader, sobel=False,
   for b_i, batch in enumerate(dataloader):
 
     imgs, flat_targets, mask = batch
-    imgs = imgs.cuda()
+    imgs = imgs.to(device)
 
     if sobel:
       imgs = sobel_process(imgs, config.include_rgb, using_IR=using_IR)
