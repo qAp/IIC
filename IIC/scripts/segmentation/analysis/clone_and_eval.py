@@ -8,7 +8,7 @@ from datetime import datetime
 import matplotlib
 import torch
 
-matplotlib.use('Agg')
+
 import os
 
 import code.archs as archs

@@ -7,7 +7,7 @@ import pickle
 import matplotlib
 import numpy as np
 
-matplotlib.use('Agg')
+
 """
   Print example images 
 """

@@ -10,7 +10,7 @@ import matplotlib
 import numpy as np
 import torch
 
-matplotlib.use('Agg')
+
 import matplotlib.pyplot as plt
 import os
 

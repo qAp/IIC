@@ -3,7 +3,6 @@ import numpy as np
 import torch
 from PIL import Image
 
-matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import os
 

@@ -12,7 +12,7 @@ import numpy as np
 import torch
 import torchvision
 
-matplotlib.use('Agg')
+
 import matplotlib.pyplot as plt
 
 import code.archs as archs
