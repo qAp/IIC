@@ -2,6 +2,7 @@ from __future__ import print_function
 
 import sys
 from datetime import datetime
+import tqdm
 
 import torch
 
@@ -74,7 +75,9 @@ def _segmentation_get_data(config, net, dataloader, sobel=False,
     print("starting batches %s" % batch_start)
 
   for b_i, batch in enumerate(dataloader):
-
+    print('\r'
+          f'batch {b_i}', end='')
+    
     imgs, flat_targets, mask = batch
     imgs = imgs.to(device)
 
